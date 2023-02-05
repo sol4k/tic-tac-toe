@@ -1,5 +1,10 @@
 plugins {
+    id 'application'
     id 'java'
+}
+
+ext {
+    javaMainClass = "org.sol4k.tictactoe.Main"
 }
 
 group 'org.sol4k.tictactoe'
@@ -10,10 +15,19 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.sol4k:sol4k:0.1.7'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
 
 test {
     useJUnitPlatform()
+}
+
+application {
+    mainClassName = javaMainClass
+}
+
+run {
+    standardInput = System.in
 }
